@@ -3,56 +3,207 @@ html {
 }
 
 h1 {
-    font-size: 50px;
-    position: absolute;
-    left: 625px;
-    top: 0px;
+    margin: 0 auto;
+    position: abslut;
+    font-size: 70px;
+    left: 100px;
     color: darkblue;
 }
 
+.highlight {
+    color: yellow;
+    font-weight: bold;
+}
+
+#bigbox {
+    position: relative;
+    border: solid 1px black;
+    top: 30px;
+    height: 650px;
+}
+
+#l0 {
+    position: absolute;
+    left: 50px;
+    top: 50px;
+    background-color: yellow;
+    border-radius: 2px;
+    height: 50px;
+    width: 100px;
+}
+
+#l1 {
+    position: absolute;
+    left: 200px;
+    top: 50px;
+    background-color: yellow;
+    border-radius: 2px;
+    height: 50px;
+    width: 100px;
+}
+
+#l2 {
+    position: absolute;
+    left: 50px;
+    top: 150px;
+    background-color: yellow;
+    border-radius: 2px;
+    height: 50px;
+    width: 100px;
+}
+
+#l3 {
+    position: absolute;
+    left: 200px;
+    top: 150px;
+    background-color: yellow;
+    border-radius: 2px;
+    height: 50px;
+    width: 100px;
+}
+
+#l4 {
+    position: absolute;
+    left: 50px;
+    top: 250px;
+    background-color: yellow;
+    border-radius: 2px;
+    height: 50px;
+    width: 100px;
+}
+
+#l5 {
+    position: absolute;
+    left: 200px;
+    top: 250px;
+    background-color: yellow;
+    border-radius: 2px;
+    height: 50px;
+    width: 100px;
+}
+
+#l6 {
+    position: absolute;
+    left: 50px;
+    top: 350px;
+    background-color: yellow;
+    border-radius: 2px;
+    height: 50px;
+    width: 100px;
+}
+
+#l7 {
+    position: absolute;
+    left: 200px;
+    top: 350px;
+    background-color: yellow;
+    border-radius: 2px;
+    height: 50px;
+    width: 100px;
+}
+
+#l8 {
+    position: absolute;
+    left: 50px;
+    top: 450px;
+    background-color: yellow;
+    border-radius: 2px;
+    height: 50px;
+    width: 100px;
+}
+
+#l9 {
+    position: absolute;
+    left: 200px;
+    top: 450px;
+    background-color: yellow;
+    border-radius: 2px;
+    height: 50px;
+    width: 100px;
+}
+
 * {
-    margin: 0;
+    margin: 0 position: relative;
     padding: 0;
 }
 
-body {
-    font: 71%/1.5 Verdana, Sans-Serif;
-    background: #eee;
-}
-
-#container {
-    margin: 100px auto;
-    width: 688px;
-    top: 300px;
-}
-
-#write {
-    margin: 0 0 5px;
-    padding: 5px;
-    width: 671px;
+#start {
+    margin: 0 auto;
+    position: relative;
+    width: 500px;
     height: 200px;
-    font: 1em/1.5 Verdana, Sans-Serif;
-    background: #fff;
-    border: 1px solid #f9f9f9;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
+    border: 2px solid black;
+    top: 50px;
+    font-size: 50px;
+    text-align: center;
+    background-color: dimgray;
+}
+
+#messagebox {
+    margin: 0 auto;
+    position: relative;
+    width: 688px;
+    height: 300px;
+    border: 3px solid black;
+    top: 50px;
+    font-size: 80px;
+    text-align: center;
+    background-color: white;
+}
+
+
+/*#lesson1{
+    position: fixed;
+    text-align: center;
+    font-size: 20px;
+    top: 200px;
+    width: 150px;
+    height: 50px;
+    margin-left: 0 auto;
+    margin-right: 0 auto;
+    margin-bottom: auto;
+    margin-top: auto;
+    border: solid black 2px;
+    background-color: darkblue;
+}
+#lesson2{
+    position: fixed;
+    text-align: center;
+    font-size: 20px;
+    top: 300px;
+    width: 150px;
+    height: 50px;
+    margin-left: 0 auto;
+    margin-right: 0 auto;
+    margin-bottom: auto;
+    margin-top: auto;
+    border: solid black 2px;
+    background-color: darkblue;
+} */
+
+#keys {
+    margin: 0 auto;
+    list-style: none;
+    position: relative;
+    top: 150px;
 }
 
 #keyboard {
-    margin: 0;
-    padding: 0;
-    list-style: none;
+    position: relative;
+    margin: 0 auto;
+    width: 688px;
+    bottom: 80px;
 }
 
-#keyboard li {
+#keys li {
     float: left;
     margin: 0 5px 5px 0;
     width: 40px;
     height: 40px;
     line-height: 40px;
     text-align: center;
-    background: #fff;
-    border: 1px solid #f9f9f9;
+    background: white;
+    border: 1px solid white;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
 }
@@ -63,24 +214,24 @@ body {
     clear: left;
 }
 
-#keyboard .tab,
-#keyboard .delete {
+#keys .tab,
+#keys .delete {
     width: 70px;
 }
 
-#keyboard .capslock {
+#keys .capslock {
     width: 80px;
 }
 
-#keyboard .return {
+#keys .return {
     width: 77px;
 }
 
-#keyboard .left-shift {
+#keys .left-shift {
     width: 95px;
 }
 
-#keyboard .right-shift {
+#keys .right-shift {
     width: 109px;
 }
 
@@ -92,17 +243,12 @@ body {
     text-transform: uppercase;
 }
 
-#keyboard .space {
+#keys .space {
     clear: left;
     width: 681px;
 }
 
-.on {
-    display: none;
-}
-
-#keyboard li:hover {
-    position: relative;
+#keys li:hover {
     top: 1px;
     left: 1px;
     border-color: #e5e5e5;
