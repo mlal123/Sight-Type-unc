@@ -9,7 +9,7 @@ lessonsize = 0;
 lessonIndex = 0;
 letterIndex = 0;
 stringlength = 0;
-listIndex = 1;
+listIndex = 0;
 is_it_finished = false;
 last_key_was_arrow = false;
 firstload = true;
@@ -125,15 +125,14 @@ $(document).on('keydown', function (ev) {
     if (!is_it_finished) {
         displayWord(lesson);
         is_it_finished = true;
-        if (firstload) {
-            var a = document.getElementById("lesson-1");
-            a.className += "highlighted";
-            firstload = false;
-        }
     }
     else {
         if (ev.keyCode === 37 || ev.keyCode === 38 || ev.keyCode === 39 || ev.keyCode === 40) {
-            // if ()
+            if (firstload) {
+                var a = document.getElementById("lesson-1");
+                a.className += "highlighted";
+                firstload = false;
+            }
             if (ev.which === 40 || ev.which === 39) {
                 // window.console.log("key pressed is down arow or right arrow and listIndex is " + listIndex);
                 if (listIndex < 10) {
