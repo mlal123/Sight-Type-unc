@@ -5,6 +5,102 @@ var words, key, message, lessonIndex, lesson = ["Please Select a Lesson"]
     , lesson0, lesson1, lesson2, lesson3, lesson4, lesson5, lesson6, lesson7, lesson8, lesson9, letterIndex, newWord, input, stringlength, letter, lessonsize, gameOverSound = document.createElement('audio')
     , is_it_finished, selectedList, listIndex, last_key_was_arrow, lastkey, firstload;
 gameOverSound.src = "https://www.cs.unc.edu/~gb/uploaded-files/mlal123@CS.UNC.EDU/76376__spazzo-1493__game-over.wav";
+var yo = {
+    //row 1 = ~, 1, 2 , 3, 4, 5, 6, 7, 8, 9, 0, -, =, backspace
+    //number + 1 <= 14
+    192: 0
+    , 49: 1
+    , 50: 2
+    , 51: 3
+    , 52: 4
+    , 53: 5
+    , 54: 6
+    , 55: 7
+    , 56: 8
+    , 57: 9
+    , 48: 10
+    , 189: 11
+    , 187: 12
+    , 8: 13, // row 2 = tab, q, w, e, r, t, y, u, i, o, p, [, ], \
+    // number + 1 <= 28
+    9: 33
+    , 81: 34
+    , 87: 35
+    , 69: 36
+    , 82: 37
+    , 84: 38
+    , 89: 39
+    , 85: 40
+    , 73: 41
+    , 79: 42
+    , 80: 43
+    , 219: 44
+    , 221: 45
+    , 220: 46, //row 3 = caps, a, s, d, f, g, h, j, k, l, ;, ', enter
+    //number + 1 <= 41
+    20: 66
+    , 65: 67
+    , 83: 68
+    , 68: 69
+    , 70: 70
+    , 71: 71
+    , 72: 72
+    , 74: 73
+    , 75: 74
+    , 76: 75
+    , 186: 76
+    , 222: 77
+    , 13: 78, //row 4 = shift, z, x, c, v, b,     n, m, comma, period, forward 
+    // number + 1 <= 52
+    16: 98
+    , 90: 99
+    , 88: 100
+    , 67: 101
+    , 86: 102
+    , 66: 103
+    , 78: 104
+    , 77: 105
+    , 188: 106
+    , 190: 107
+    , 191: 108, // row 5 = control, alt, space, alt, control
+    17: 128
+    , 18: 129
+    , 32: 130
+};
+window.console.log("i " + yo[73]);
+
+function location(desired, actual) {
+    'use strict';
+    //var row1, row2;
+    var desiredkey = yo[desired];
+    var actualkey = yo[actual];
+    window.console.log("desired key is " + desiredkey + " and actual key is " + actualkey);
+    if ((actualkey - desiredkey) >= 20) {
+        responsiveVoice.speak("Go up a row", "UK English Male", {
+            rate: 1.0
+        });
+    }
+    else if ((actualkey - desiredkey) <= (-20)) {
+        responsiveVoice.speak("Go down a row", "UK English Male", {
+            rate: 1.0
+        });
+    }
+    else {
+        if (actualkey < desiredkey) {
+            // go right
+            responsiveVoice.speak("The key is to the right", "UK English Male", {
+                rate: 1.0
+            });
+        }
+        else if (actualkey > desiredkey) {
+            //go left
+            responsiveVoice.speak("The key is to the left", "UK English Male", {
+                rate: 1.0
+            });
+        }
+    }
+    // row 1
+}
 lessonsize = 0;
 lessonIndex = 0;
 letterIndex = 0;
@@ -13,16 +109,16 @@ listIndex = 0;
 is_it_finished = false;
 last_key_was_arrow = false;
 firstload = true;
-lesson1 = ["f", "ff", "fff"];
-lesson2 = ["j", "j", "jj", "jj", "jjj", "jjj"];
-lesson3 = ["fj", "fj", "fj", "fjfj", "fjfj"];
-lesson4 = ["jf", "jf", "jf", "jfjf", "jfjf"];
-lesson5 = ["fg", "fg", "fg", "fgf", "fgf", "fgfg", "fgfg"];
-lesson6 = ["jh", "jh", "jh", "jhj", "jhj", "jhjh", "jhjh"];
-lesson7 = ["fgj", "fgj", "fgj", "fgj"];
-lesson8 = ["jhf", "jhf", "jhf", "jhf"];
-lesson9 = ["fjgh", "fjgh", "fjgh"];
-lesson10 = ["fgjh", "fgjh", "fgjh"];
+lesson1 = ["F", "FF", "FFF"];
+lesson2 = ["J", "JJ", "JJJ"];
+lesson3 = ["ABC", "DEF", "GHI", "JKL", "MNO"];
+lesson4 = ["PQR", "STU", "VWX", "YZ"];
+lesson5 = ["CAT", "DOG", "COW", "HAT", "MAT", "CHI", "LOW"];
+lesson6 = ["MIKE", "JOHN", "JAKE", "CHRIS", "JESS", "CARL", "JOSH"];
+lesson7 = ["FIRE", "EARTH", "WATER", "WIND"];
+lesson8 = ["MOTORCYCLE", "FIRETRUCK", "AIRPLANE"];
+lesson9 = ["UNC", "DUKE", "UVA", "DAVIDSON"];
+lesson10 = ["WORLD", "BALLER", "HOMER"];
 
 function highlightLesson(index) {
     selectedList = "#lesson-" + index;
@@ -67,6 +163,7 @@ function thislesson(num) {
 }
 
 function reset() {
+    'use strict';
     is_it_finished = false;
     lesson = ["Please Select a Lesson"];
 }
@@ -119,14 +216,14 @@ function is_it_arrow(s) {
 }
 $(document).on('keydown', function (ev) {
     'use strict';
-    var letter = String.fromCharCode(ev.keyCode);
-    var key = ev.keyCode;
     // displayWord(lesson);
     if (!is_it_finished) {
         displayWord(lesson);
         is_it_finished = true;
     }
     else {
+        var letter = String.fromCharCode(ev.keyCode);
+        var key = ev.keyCode;
         if (ev.keyCode === 37 || ev.keyCode === 38 || ev.keyCode === 39 || ev.keyCode === 40) {
             if (firstload) {
                 var a = document.getElementById("lesson-1");
@@ -158,7 +255,7 @@ $(document).on('keydown', function (ev) {
             if (last_key_was_arrow) {
                 getLesson(lesson);
             } // end of lesson
-            else if (lessonIndex === (lessonsize - 1) && last_key_was_arrow === false) {
+            else if (lessonIndex === (lessonsize - 1) && (letterIndex === stringlength) && last_key_was_arrow === false) {
                 // is_it_finished = true;
                 lessonIndex = 0;
                 lastkey = key;
@@ -174,17 +271,15 @@ $(document).on('keydown', function (ev) {
                 is_it_arrow(lastkey);
             }
             else {
-                playSound();
+                location(lesson[lessonIndex][letterIndex].charCodeAt(), key);
                 // window.console.log("Lesson Index was " + lessonIndex + " and you should have pressed " + lesson[lessonIndex][letterIndex]);
                 lastkey = key;
                 is_it_arrow(lastkey);
             }
         }
         else if (ev.keyCode >= 65 && ev.keyCode <= 90) {
-            letter = letter.toLowerCase();
+            // letter = letter.toLowerCase();
             if (letter === lesson[lessonIndex][letterIndex]) {
-                //   window.console.log("Letter Index is " + letterIndex + " and lesson Index was " + lessonIndex);
-                //   window.console.log("You pressed " + letter + " the key was supposed to be " + lesson[lessonIndex][letterIndex] + " letter index was " + letterIndex);
                 responsiveVoice.speak(lesson[lessonIndex][letterIndex], "UK English Female", {
                     rate: 1.5
                 });
@@ -192,9 +287,10 @@ $(document).on('keydown', function (ev) {
                 letterIndex += 1;
                 lastkey = key;
                 is_it_arrow(lastkey);
+                window.console.log("letterIndex " + letterIndex);
             }
             else {
-                playSound();
+                location(lesson[lessonIndex][letterIndex].charCodeAt(), key);
                 lastkey = key;
                 is_it_arrow(lastkey);
             }
