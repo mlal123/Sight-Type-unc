@@ -1,6 +1,7 @@
 /*global $, jQuery*/
 /*global alert */
 //variables
+//Copyright© 2016 Mangza Lal protected by law
 var words, key, message, lessonIndex, lesson = ["Please Select a Lesson"]
     , lesson0, lesson1, lesson2, lesson3, lesson4, lesson5, lesson6, lesson7, lesson8, lesson9, letterIndex, newWord, input, stringlength, letter, lessonsize, gameOverSound = document.createElement('audio')
     , is_it_finished, selectedList, listIndex, last_key_was_arrow, lastkey, firstload;
