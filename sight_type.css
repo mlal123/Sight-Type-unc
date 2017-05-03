@@ -1,13 +1,12 @@
 html {
-    background-color: skyblue;
+    background-color: darkslategray;
 }
 
 h1 {
     margin: 0 auto;
-    position: abslut;
     font-size: 70px;
     left: 100px;
-    color: darkblue;
+    color: white;
 }
 
 .highlight {
@@ -21,109 +20,12 @@ h1 {
 
 #bigbox {
     position: relative;
+    margin: 0 auto;
     border: solid 1px black;
     top: 30px;
     height: 650px;
-}
-
-#l0 {
-    position: absolute;
-    left: 50px;
-    top: 50px;
-    background-color: yellow;
-    border-radius: 2px;
-    height: 50px;
-    width: 100px;
-}
-
-#l1 {
-    position: absolute;
-    left: 200px;
-    top: 50px;
-    background-color: yellow;
-    border-radius: 2px;
-    height: 50px;
-    width: 100px;
-}
-
-#l2 {
-    position: absolute;
-    left: 50px;
-    top: 150px;
-    background-color: yellow;
-    border-radius: 2px;
-    height: 50px;
-    width: 100px;
-}
-
-#l3 {
-    position: absolute;
-    left: 200px;
-    top: 150px;
-    background-color: yellow;
-    border-radius: 2px;
-    height: 50px;
-    width: 100px;
-}
-
-#l4 {
-    position: absolute;
-    left: 50px;
-    top: 250px;
-    background-color: yellow;
-    border-radius: 2px;
-    height: 50px;
-    width: 100px;
-}
-
-#l5 {
-    position: absolute;
-    left: 200px;
-    top: 250px;
-    background-color: yellow;
-    border-radius: 2px;
-    height: 50px;
-    width: 100px;
-}
-
-#l6 {
-    position: absolute;
-    left: 50px;
-    top: 350px;
-    background-color: yellow;
-    border-radius: 2px;
-    height: 50px;
-    width: 100px;
-}
-
-#l7 {
-    position: absolute;
-    left: 200px;
-    top: 350px;
-    background-color: yellow;
-    border-radius: 2px;
-    height: 50px;
-    width: 100px;
-}
-
-#l8 {
-    position: absolute;
-    left: 50px;
-    top: 450px;
-    background-color: yellow;
-    border-radius: 2px;
-    height: 50px;
-    width: 100px;
-}
-
-#l9 {
-    position: absolute;
-    left: 200px;
-    top: 450px;
-    background-color: yellow;
-    border-radius: 2px;
-    height: 50px;
-    width: 100px;
+    background-color: lightsteelblue;
+    border-radius: 10px;
 }
 
 * {
@@ -136,11 +38,12 @@ h1 {
     position: relative;
     width: 500px;
     height: 200px;
-    border: 2px solid black;
+    border: 2px solid lightsteelblue;
     top: 50px;
     font-size: 50px;
     text-align: center;
     background-color: dimgray;
+    border-radius: 5px;
 }
 
 #messagebox {
@@ -148,17 +51,19 @@ h1 {
     position: relative;
     width: 688px;
     height: 300px;
-    border: 3px solid black;
+    border: 3px solid silver;
     top: 50px;
     font-size: 80px;
     text-align: center;
     background-color: white;
+    border-radius: 10px;
 }
 
 #lessonBox {
     position: absolute;
     margin: 0 auto;
-    left: 100px;
+    width: 10%;
+    /* left: 100px;*/
     top: 25px;
 }
 
@@ -220,16 +125,20 @@ h1 {
 }
 
 #lessons li {
+    margin: 0 5px 5px 0;
     float: center;
     margin: 0 5px 5px 0;
-    width: 100px;
+    width: 100%;
+    font-weight: bold;
+    font-size: 30px;
     height: 50px;
     text-align: center;
     line-height: 40px;
-    background: yellow;
+    background: darkcyan;
     border: 1px solid black;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
+    list-style-type: none;
 }
 
 .capslock,
