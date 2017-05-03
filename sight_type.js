@@ -69,11 +69,13 @@ var yo = {
 };
 window.console.log("i " + yo[73]);
 
-function location(desired, actual) {
+function location1(desired, actual) {
     'use strict';
     //var row1, row2;
+    window.console.log(thiskey);
     var desiredkey = yo[desired];
     var actualkey = yo[actual];
+    var thiskey = Math.abs(actualkey - desiredkey);
     window.console.log("desired key is " + desiredkey + " and actual key is " + actualkey);
     if ((actualkey - desiredkey) >= 20) {
         responsiveVoice.speak("Go up a row", "UK English Male", {
@@ -88,13 +90,13 @@ function location(desired, actual) {
     else {
         if (actualkey < desiredkey) {
             // go right
-            responsiveVoice.speak("The key is to the right", "UK English Male", {
+            responsiveVoice.speak("The key is" + thiskey + "to the right", "UK English Male", {
                 rate: 1.0
             });
         }
         else if (actualkey > desiredkey) {
             //go left
-            responsiveVoice.speak("The key is to the left", "UK English Male", {
+            responsiveVoice.speak("The key is" + thiskey + "to the left", "UK English Male", {
                 rate: 1.0
             });
         }
@@ -117,8 +119,8 @@ lesson5 = ["CAT", "DOG", "COW", "HAT", "MAT", "CHI", "LOW"];
 lesson6 = ["MIKE", "JOHN", "JAKE", "CHRIS", "JESS", "CARL", "JOSH"];
 lesson7 = ["FIRE", "EARTH", "WATER", "WIND"];
 lesson8 = ["MOTORCYCLE", "FIRETRUCK", "AIRPLANE"];
-lesson9 = ["UNC", "DUKE", "UVA", "DAVIDSON"];
-lesson10 = ["WORLD", "BALLER", "HOMER"];
+lesson9 = ["UNC ROCKS", "DUKE SUCKS", "LEAGUE OF LEGENDS", "WHAT A TIME TO BE ALIVE", "I LIKE CATS", "I LIKE DOGS"];
+lesson10 = ["I WANNA KNOW HAVE YOU EVER SEEN THE RAIN", "MICHAEL JORDAN IS THE BEST BASKETBALL PLAYER EVER", "THIS LOVE HAS TAKEN ITS TOLL ON ME", "UNC IS THE BEST SCHOOL EVER", "PETER PIPER PICKED A PECK OF PICKLED PEPPERS"];
 
 function highlightLesson(index) {
     selectedList = "#lesson-" + index;
@@ -271,14 +273,15 @@ $(document).on('keydown', function (ev) {
                 is_it_arrow(lastkey);
             }
             else {
-                location(lesson[lessonIndex][letterIndex].charCodeAt(), key);
+                location1(lesson[lessonIndex][letterIndex].charCodeAt(), key);
                 // window.console.log("Lesson Index was " + lessonIndex + " and you should have pressed " + lesson[lessonIndex][letterIndex]);
                 lastkey = key;
                 is_it_arrow(lastkey);
             }
         }
-        else if (ev.keyCode >= 65 && ev.keyCode <= 90) {
+        else if (ev.keyCode >= 0 && ev.keyCode <= 250) {
             // letter = letter.toLowerCase();
+            window.console.log(letter);
             if (letter === lesson[lessonIndex][letterIndex]) {
                 responsiveVoice.speak(lesson[lessonIndex][letterIndex], "UK English Female", {
                     rate: 1.5
@@ -290,7 +293,7 @@ $(document).on('keydown', function (ev) {
                 window.console.log("letterIndex " + letterIndex);
             }
             else {
-                location(lesson[lessonIndex][letterIndex].charCodeAt(), key);
+                location1(lesson[lessonIndex][letterIndex].charCodeAt(), key);
                 lastkey = key;
                 is_it_arrow(lastkey);
             }
